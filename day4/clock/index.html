@@ -7,6 +7,7 @@
     <script src="/Users/sorxcode/raw/react.min.js"></script>
     <script src="/Users/sorxcode/raw/react-dom.min.js"></script>
     <script src="/Users/sorxcode/raw/babel.js"></script>
+    <script src="/Users/sorxcode/raw/prop-types.js"></script>
     <link
       rel="stylesheet"
       type="text/css"
@@ -17,6 +18,7 @@
   <body>
     <div id="app"></div>
     <script type="text/babel">
+
       var mount = document.querySelector("#app");
 
       class Clock extends React.Component {
@@ -65,6 +67,23 @@
         }
       }
 
+      Clock.propTypes = {
+        title: PropTypes.string,
+        count: PropTypes.number,
+        isOn: PropTypes.bool,
+        onDisplay: PropTypes.func,
+        symbol: PropTypes.symbol,
+        user: PropTypes.object,
+        name: PropTypes.node,
+
+        counts: PropTypes.array,
+        users: PropTypes.arrayOf(PropTypes.object),
+        alarmColor: PropTypes.oneOf(["red", "blue"]),
+        description: PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.instanceOf("Title")
+        ])
+      };
       ReactDOM.render(<Clock />, mount);
     </script>
   </body>
